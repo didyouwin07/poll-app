@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+h1{
+  text-align: center;
+  margin:0;
+  padding: 2rem;
+  background: #6C4A4A;
+  color: #EDEDED;
+}
+
+table{
+  text-align: center;
+  margin: auto;
+}
+
+td{
+  padding: 1rem;
+}
+
+form{
+  background: #C89595;
+  padding-top: 10vh;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+input{
+  height:3.5vh;
+  width: 30vw;
+}
+
+button:hover{
+  background: #DDBEBE;
+  cursor: pointer;
+}
+
+button{
+  width:6vw;
+  height:5vh;
+}
+
+.container{
+  background: #C89595;
+  height: 100vh;
+  margin:0;
+}

@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Create a new poll:</h1>
+  <form #pollForm="ngForm">
+    <table>
+      <tr>
+        <td><label for="question">Question</label></td>
+        <td><input type="text" name="question" [(ngModel)]="pollQuestion" placeholder="Enter the question"></td>
+      </tr>
+      <td><button type="submit" name="submit" (click)="post()">Post</button></td>
+    </table>
+  </form>
+  <!-- this is the point where live polls start -->
+  <h1>Live Polls:</h1>
+  <div class="poll" *ngFor="let stmt of livePolls">
+    <h2>{{stmt.id}}{{'.'}} {{stmt.stm}}</h2>
+    <div class="op1">
+      <h3 class='live-poll' (click)="change(1,stmt.id)">Yes</h3>
+      <!-- live point will show the progress bar only once the vote is casted -->
+        <progress-bar *ngIf="stmt.voted" progress={{stmt.op1}} class="optionA" ></progress-bar>
+    </div>
+    <div class="op2">
+      <h3 class='live-poll' (click)="change(2,stmt.id)">No</h3>
+      <progress-bar *ngIf="stmt.voted" progress={{stmt.op2}} class="optionB" ></progress-bar>
+    </div>
+  </div>
+  <div class="card-header">
+      Time left:
+    </div>
+    <div class="card-body">
+      <countdown [config]="{ leftTime: 300 }"></countdown>
+    </div>
+    <!-- this is the point where live polls end -->
+  <h1>Past Polls:</h1>
+  <div class="poll" *ngFor="let stmt of preFilled">
+    <h2>{{stmt.id}}{{'.'}} {{stmt.stm}}</h2>
+    <div class="op1">
+      <h3>Yes</h3>
+      <progress-bar progress={{stmt.op1}} class="optionA" ></progress-bar>
+    </div>
+    <div class="op2">
+      <h3>No</h3>
+      <progress-bar progress={{stmt.op2}} class="optionB" ></progress-bar>
+    </div>
+  </div>
+
+</div>
